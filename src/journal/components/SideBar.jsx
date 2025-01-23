@@ -1,7 +1,12 @@
-import { Grid, Box, Divider, Drawer, List, ListItem, ListItemText,  ListItemButton, ListItemIcon, Toolbar, Typography } from "@mui/material"
+import { Grid, Box, Divider, Drawer, List, ListItem, ListItemText, ListItemButton, ListItemIcon, Toolbar, Typography } from "@mui/material"
 import { TurnedInNot } from "@mui/icons-material"
+import { FirebaseAuth } from "../../firebase/config"
+import { useSelector } from "react-redux"
 
-export const SideBar = ({ drawerWidth = 240}) => {
+export const SideBar = ({ drawerWidth = 240 }) => {
+
+    const { displayName } = useSelector(state => state.auth);
+
     return (
         <Box
             component='nav'
@@ -12,12 +17,12 @@ export const SideBar = ({ drawerWidth = 240}) => {
                 open
                 sx={{
                     display: { xs: 'block' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width:  drawerWidth }
+                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
                 }}
             >
                 <Toolbar>
                     <Typography variant='h6' noWrap component='div'>
-                        Lucas Carli
+                        {displayName}
                     </Typography>
 
                 </Toolbar>
@@ -26,7 +31,7 @@ export const SideBar = ({ drawerWidth = 240}) => {
                 <List>
                     {
                         ['Enero', 'Febrero', 'Marzo', 'Abril'].map(text => (
-                            <ListItem key={ text } disablePadding>
+                            <ListItem key={text} disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>
                                         <TurnedInNot />

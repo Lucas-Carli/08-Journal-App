@@ -16,8 +16,8 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
 
   const { email, password, onInputChange } = useForm({
-    email: 'lucas@google.com',
-    password: '123456'
+    email: '',
+    password: ''
   });
 
   // Si el status cambia se devuelve el nuevo valor, sino se mantiene el mismo
@@ -37,7 +37,8 @@ export const LoginPage = () => {
   return (
     /* Implementación color del fondo, desde purpleTheme */
     <AuthLayout title="Login">
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className='animate__animated animate__fadeIn animate__faster'
+      > 
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
