@@ -9,7 +9,6 @@ const dispatch = useDispatch();
 
     const onLogout = () => {
         dispatch( startLogout() );
-        console.log('logout');
     }
 
     return (
