@@ -13,10 +13,11 @@ export const startNewNote = () => {
     const { uid } = getState().auth;
 
     const newNote = {
-      title: '',
-      body: '',
-      date: new Date().getTime(),
-    }
+      title: "",
+      body: "",
+      imageUrls: [],
+      date: new Date().getTime()
+    };
 
     const newDoc = doc(collection(FirebaseDB, `${uid}/journal/notes`))
 
@@ -91,7 +92,7 @@ export const startDeletingNote = () => {
     await deleteDoc(docRef);
 
     /* Eliminación el Local */
-    dispatch( deleteNoteById(note.id));
+    dispatch(deleteNoteById(note.id));
 
   }
 }
