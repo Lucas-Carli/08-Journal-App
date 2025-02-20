@@ -19,7 +19,6 @@ export const startGoogleSignIn = () => {
         const result = await signInWithGoogle()
         if (!result.ok) return dispatch(logout(result.errorMessage));
 
-
         dispatch(login(result));
     }
 }
@@ -47,7 +46,6 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
         dispatch(checkingCredentials());
 
         const result = await loginWithEmailPassword({ email, password });
-        console.log(result)
 
         if (!result.ok) return dispatch(logout(result));
         dispatch(login(result));
@@ -61,8 +59,8 @@ export const startLogout = () => {
 
         await logoutFirebase();
 
-        dispatch( clearNotesLogout());
-        dispatch( logout() );
+        dispatch(clearNotesLogout());
+        dispatch(logout());
 
     }
 }
