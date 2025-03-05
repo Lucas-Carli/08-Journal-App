@@ -7,8 +7,6 @@ import { getEnvironments } from "../helpers/getEnvironments";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 
-console.log(getEnvironments())
-
 const {
   VITE_APIKEY,
   VITE_AUTHDOMAIN,
